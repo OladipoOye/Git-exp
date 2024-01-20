@@ -8,3 +8,8 @@ print(f(5))
 print(f(-1))
 assert f(5) == 26
 assert f(4) == 17
+
+# How branches work 
+print("Branch start")
+#import numpy as np
+#import math
