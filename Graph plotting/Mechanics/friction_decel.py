@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 #  from ipywidgets import interact
 
 
-def plot(u=0.1, N=10, v0=20, d0=50):
+def plot(u=0.1, N=10, v0=20):
     g = 9.8
     dt = 1/N
-    t = np.linspace(0, 100, N-1)
+    t = np.linspace(0, 20, N-1)
     xddot = np.zeros(N)
     xdot = np.zeros(N)
     # adding a v0 term
@@ -14,15 +14,14 @@ def plot(u=0.1, N=10, v0=20, d0=50):
     xe = np.zeros(N)
     xs = np.zeros(N)
     # setting the initial distance to 50
-    xe[0] = d0
-    xs[0] = d0
     euler = []
     semi = []
     # equation of motion
+    
     def z(x):
-        y = -u*g*(x**2)/2 + v0*x + d0
-        if x<10 :
-            print('x is', x, 'acceleration is', -u*g*(x**2/2), 'u is', u, 'g is', g) 
+        y = -u*g*(x**2)/2 + v0*x 
+        if x < 10:
+            print('x is', x, 'acceleration is', -u*g*(x**2)/2, 'u is', u, 'g is', g) 
         return y
     # list of y values
     lis = []
@@ -45,4 +44,4 @@ def plot(u=0.1, N=10, v0=20, d0=50):
 
 
 #interact(plot, u=[0.01, 0.99, 0.04], N=[10, 100, 10])
-plot(u=0.3, N=400, v0=10)
+plot(u=0.3, N=10, v0=5)
