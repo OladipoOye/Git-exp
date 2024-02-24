@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 
 def plot(u, N, v0):
     g = 9.8
-    dt = 20/N
     t = np.linspace(0, 20, N-1)
+    dt = 20/N
     xddot = np.zeros(N)
     xdot = np.zeros(N)
     # adding a v0 term
@@ -21,7 +21,7 @@ def plot(u, N, v0):
     def z(t1):
         y = -u*g*(t1**2)/2 + v0*t1
         if t1 < 10:
-            print('time  is', t1, "seconds,", 'acceleration term is', -u*g*(t1**2)/2, 'u is', u, 'g is', g) 
+            print('time  is', t1, "seconds,", 'acceleration term is', -u*g*(t1**2)/2, 'u is', u, 'g is', g, ",y is", y) 
         return y
 
     # list of y values
@@ -45,8 +45,8 @@ def plot(u, N, v0):
 
 
 #interact(plot, u=[0.01, 0.99, 0.04], N=[10, 100, 10])
-plot(u=0.3, N=80, v0=60)
-
+plot(u=0.3, N=100, v0=60)
+# does the speed have an effect on the convergence?
 #def z(t1):
     #u = 0.3
     #g = 9.8
