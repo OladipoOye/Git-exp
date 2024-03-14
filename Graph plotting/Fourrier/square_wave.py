@@ -1,15 +1,16 @@
 import numpy as np 
 import matplotlib.pyplot as plt
 
-def plot(n, d):
+def plot(N, d):
     #  purely odd
-    an_terms = np.zeros(n+1)
-    bn_terms = []
+    #  a_n = 0
+    b_n = []
     f = []
-    t = np.linspace(-np.pi, np.pi, n)
-    for i in range(1, n+1):
-        bn_terms.append((2 * (1 - ((-1)**i)) / i / np.pi) * np.sin(i*t[i-1]))
-        f.append(d + bn_terms[i-1] + an_terms[i-1])
+    t = np.linspace(-np.pi, np.pi, N)
+    for n in range(1, N+1):
+        b_n.append((2 * (1 - ((-1)**n)) / n / np.pi) * np.sin(n*t[n-1]))
+        f.append(d + b_n[n-1])
+        print("n is", n, ", d is", d, ", d + b_n is", f[n-1], ", t is", t[n-1], ", sine nt =", np.sin(n*t[n-1]))
     plt.plot(t, f, 'r')
     plt.plot(t, np.zeros(len(t)), 'g')
     plt.xlabel('t')
