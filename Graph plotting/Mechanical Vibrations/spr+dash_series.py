@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # T = lambda / k
 
 def step(N, lamda, k, x0):
-    t_list = np.linspace(0, 5, N-1)
+    t_list = np.linspace(0, 3, N-1)
     T = lamda / k 
     y_values = []
     print('step is', x0, ', Time const is', T, ', N is', N)
@@ -20,15 +20,16 @@ def step(N, lamda, k, x0):
         sol = y_step(t_list[i])
         y_values.append(sol)
     print('y list is', y_values)
-    plt.plot(t_list, y_values, 'g', label='Dashpot and spring in series')
+    plt.plot(t_list, y_values, 'g')
     plt.xlabel('Time (s)')
-    plt.ylabel('Step response of dashpot, y, (m)')
+    plt.ylabel('y (m)')
+    plt.title('Step response of dashpot and spring in series')
     plt.show()
     
-step(80, 1, 10, 0.5)
+step(60, 1, 10, 0.5)
 
 def impulse(N, lamda, k, I):
-    t_list = np.linspace(0, 5, N-1)
+    t_list = np.linspace(0, 3, N-1)
     T = lamda / k
     y_values = []
     
@@ -40,9 +41,10 @@ def impulse(N, lamda, k, I):
         sol = y_impulse(t_list[i])
         y_values.append(sol)
     
-    plt.plot(t_list, y_values, 'r', label='Dashpot and spring in series')
+    plt.plot(t_list, y_values, 'r')
     plt.xlabel('Time (s)')
-    plt.ylabel('Impulse response of dashpot y (m)')
+    plt.ylabel('y (m)')
+    plt.title('Impulse response of dashpot and spring in series')
     plt.show()
     
-impulse(80, 1, 10, 0.5)
+impulse(60, 1, 10, 0.5)
