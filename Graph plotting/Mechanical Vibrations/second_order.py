@@ -1,5 +1,4 @@
 import numpy as np
-import math
 import matplotlib.pyplot as plt
 
 
@@ -41,7 +40,7 @@ def step_underd(N, w_n, zeta, x0):
     
 #step_underd(100, 3, 0.3, 20)
 # Only zeta affects the small angle approximation
-# changing of w_n doesn't affect approximation
+# increasing the natural time period squishes the graph
 # increasing w_n makes the initial gradient steeper
 # all graphs start as sinusodal, then level off
 # changing x0 only changes the magnitude of the displacement, not shape
@@ -62,7 +61,7 @@ def imp_underd(N, w_n, zeta, I):
     plt.title('Second Order Impulse response')
     plt.show()
 
-imp_underd(100, 3, 0.3, 50)
+imp_underd(100, 3, 0.3, 20)
 # oscillates between negative and positive
 # increasing the natural time period squishes the graph
 # decreasing zeta reduces the damping
