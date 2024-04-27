@@ -58,7 +58,7 @@ def Impulse(N, lamda, k, I):
     
     for i in range(N-1):
         y_values.append(y_imp(t_list[i]))
-    plt.plot(t_list, y_values, 'g')
+    plt.plot(t_list, y_values, 'r')
     plt.xlabel('Time (s)')
     plt.ylabel('y (m)')
     plt.title('Impulse response of dashpot and spring in parallel')

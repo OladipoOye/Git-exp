@@ -40,7 +40,7 @@ def step_underd(N, w_n, zeta, x0):
     
 #step_underd(100, 3, 0.3, 20)
 # Only zeta affects the small angle approximation
-# increasing the natural time period squishes the graph
+# increasing the natural time frequency squishes the graph
 # increasing w_n makes the initial gradient steeper
 # all graphs start as sinusodal, then level off
 # changing x0 only changes the magnitude of the displacement, not shape
@@ -63,6 +63,6 @@ def imp_underd(N, w_n, zeta, I):
 
 imp_underd(100, 3, 0.3, 20)
 # oscillates between negative and positive
-# increasing the natural time period squishes the graph
+# increasing the natural time frequency squishes the graph
 # decreasing zeta reduces the damping
 # changing the impulse only affects the magnitude of the displacement, not the shape

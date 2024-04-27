@@ -42,7 +42,7 @@ def taylor_approx(n, h):
     plt.show()
     
     
-#taylor_approx(100, 0.01)
+taylor_approx(100, 0.001)
 
 # question 4
 # function is x squared * sine(x squared)
@@ -50,6 +50,7 @@ def taylor_approx(n, h):
 def comparison(x, h):
     def f_1(x):
         f = (x**2) * np.sin(x**2)
+        return f
          
     actual = (2*x*np.sin(x**2)) + (2*(x**3)*np.cos(x**2))
     z = f_1(x + 1j*h)
@@ -58,7 +59,8 @@ def comparison(x, h):
         
     error_complex = diff_1 - actual
     error_twosided = diff_2 - actual
-    return "x is,", x, "h is", h, "complex step error is,", error_complex, "two sided error is,", error_twosided
+    return error_complex, error_twosided
+
 
 comparison(10, 10**(-9))
 comparison(10, 10**(-12))
@@ -72,3 +74,27 @@ comparison(1000, 10**(-15))
 comparison(10000, 10**(-9))
 comparison(10000, 10**(-12))
 comparison(10000, 10**(-15))
+
+# question 5 3 point average
+def point_3_avg(x):
+    avg = []
+    for n in range(len(x) -2):
+        avg.append(x[n] + x[n+1] + x[n+2] / 3)
+    return avg
+
+def fx(x):
+    return (np.sin(x) + np.cos(10*x)) / 5
+
+z = np.linspace(0, 2*np.pi, 51)
+z1 = np.linspace(0, 2*np.pi, 49)
+fx_list = []
+for i in range(len(z)):
+    fx_list.append(fx(z[i]))
+fx_array = np.array(fx_list)
+
+for j in range(len(fx_array) - 2):
+    point_3 = point_3_avg(fx_array)
+plt.plot(z, fx_list, 'r', label='original')
+plt.plot(z1, point_3, 'g', label='3 point moving avg')
+plt.legend()
+plt.show()
