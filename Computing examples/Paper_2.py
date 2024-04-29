@@ -12,24 +12,9 @@ def f(x):
 
 
 def taylor_approx(n, h):
-    x = np.linspace(-20, 20, n)
+    x = np.linspace(-10, 10, n)
     one = []
-    two = [] 
-    #h_list = []
-    #h2_list = [] 
-    
-    #for i in range(len(x)):
-    #    one.append(((f(x[i]+h) - f(x[i])) / h) - (3*(x[i]**2)))
-    #    two.append(((f(x[i]+h) - f(x[i]-h)) / 2*h) - (3*(x[i]**2)))
-    #    h_list.append(h*x[i])
-    #    h2_list.append((h**2)*x[i])
-    #plt.plot(x, one, 'rx', label='onesided')
-    #plt.plot(x, two, 'gx', label='twosided')
-    #plt.plot(x, h_list, 'm', label='O(h)')
-    #plt.plot(x, h2_list, 'b', label='O(h^2)')
-    #plt.legend()
-    #plt.show()
-    
+    two = []
     for i in range(len(x)):
         taylor1 = (f(x[i]+h) - f(x[i])) / h
         taylor2 = (f(x[i]+h) - f(x[i]-h)) / 2*h
@@ -42,7 +27,7 @@ def taylor_approx(n, h):
     plt.show()
     
     
-taylor_approx(100, 0.001)
+taylor_approx(100, 0.01)
 
 # question 4
 # function is x squared * sine(x squared)
@@ -94,7 +79,12 @@ fx_array = np.array(fx_list)
 
 for j in range(len(fx_array) - 2):
     point_3 = point_3_avg(fx_array)
+point_3.append( fx_array[49] + fx_array[50] / 2)
+point_3.append(fx_array[50])
 plt.plot(z, fx_list, 'r', label='original')
-plt.plot(z1, point_3, 'g', label='3 point moving avg')
+plt.plot(z, point_3, 'g', label='3 point moving avg')
 plt.legend()
 plt.show()
+
+
+# question 5b baker building
