@@ -11,7 +11,7 @@ def f(x):
     return f
 
 
-def taylor_approx(n, h):
+#def taylor_approx(n, h):
     x = np.linspace(-10, 10, n)
     one = []
     two = []
@@ -27,7 +27,21 @@ def taylor_approx(n, h):
     plt.show()
     
     
-taylor_approx(100, 0.01)
+#taylor_approx(100, 0.01)
+
+def taylor_approx_proper(ind, h, x):
+        taylor1 = (f(x+h) - f(x)) / h
+        taylor2 = (f(x+h) - f(x-h)) / 2*h
+        actual =  3*(x**2)
+        if ind==0:
+            return print(taylor1 - actual)
+        if ind !=0:
+            return print(taylor2 - actual)
+
+
+taylor_approx_proper(1, 0.01, 3)
+        
+    
 
 # question 4
 # function is x squared * sine(x squared)
@@ -44,7 +58,7 @@ def comparison(x, h):
         
     error_complex = diff_1 - actual
     error_twosided = diff_2 - actual
-    return error_complex, error_twosided
+    return print(error_complex, error_twosided)
 
 
 comparison(10, 10**(-9))
@@ -66,6 +80,7 @@ def point_3_avg(x):
     for n in range(len(x) -2):
         avg.append(x[n] + x[n+1] + x[n+2] / 3)
     return avg
+
 
 def fx(x):
     return (np.sin(x) + np.cos(10*x)) / 5
