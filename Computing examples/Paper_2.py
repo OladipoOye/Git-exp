@@ -39,7 +39,7 @@ def taylor_approx_proper(ind, h, x):
             return print(taylor2 - actual)
 
 
-taylor_approx_proper(1, 0.01, 3)
+#taylor_approx_proper(1, 0.01, 3)
         
     
 
@@ -58,7 +58,7 @@ def comparison(x, h):
         
     error_complex = diff_1 - actual
     error_twosided = diff_2 - actual
-    return print(error_complex, error_twosided)
+    return print("comparison is", error_complex, error_twosided)
 
 
 comparison(10, 10**(-9))
@@ -94,7 +94,7 @@ fx_array = np.array(fx_list)
 
 for j in range(len(fx_array) - 2):
     point_3 = point_3_avg(fx_array)
-point_3.append( fx_array[49] + fx_array[50] / 2)
+point_3.append(fx_array[49] + fx_array[50] / 2)
 point_3.append(fx_array[50])
 plt.plot(z, fx_list, 'r', label='original')
 plt.plot(z, point_3, 'g', label='3 point moving avg')
@@ -103,3 +103,20 @@ plt.show()
 
 
 # question 5b baker building
+
+
+#question 1 binary search
+
+def binary(x, n):
+    len_x = len(x)
+    low, hi = 0, len_x -1
+    if n<x[low] or n>x[hi]:
+        return None
+    while True:
+        mid = low + hi / 2
+        if n > x[mid]:
+            low = mid + 1
+        elif n < x[mid]:
+            hi = mid - 1
+        elif n == mid:
+            return mid            
